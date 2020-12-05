@@ -1,0 +1,7 @@
+G:\Modules\Dot Net\Assignments\Assignment4\Que2\bin\Debug\Que2.exe.config
+G:\Modules\Dot Net\Assignments\Assignment4\Que2\bin\Debug\Que2.exe
+G:\Modules\Dot Net\Assignments\Assignment4\Que2\bin\Debug\Que2.pdb
+G:\Modules\Dot Net\Assignments\Assignment4\Que2\obj\Debug\Que2.csprojAssemblyReference.cache
+G:\Modules\Dot Net\Assignments\Assignment4\Que2\obj\Debug\Que2.csproj.CoreCompileInputs.cache
+G:\Modules\Dot Net\Assignments\Assignment4\Que2\obj\Debug\Que2.exe
+G:\Modules\Dot Net\Assignments\Assignment4\Que2\obj\Debug\Que2.pdb
