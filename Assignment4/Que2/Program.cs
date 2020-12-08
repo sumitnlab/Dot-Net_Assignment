@@ -6,34 +6,131 @@ using System.Threading.Tasks;
 
 namespace Que2
 {
+    public struct Student
+    {
+
+        private string name;
+
+          public string StudName
+        {
+            set
+            {
+                 if(value!=null)
+                {
+                    name = value;
+                    
+                }
+                 else
+                {
+                     Console.WriteLine("Invalid name");
+                }
+
+            }
+            get
+            {
+                return name;
+            }
+        }
+
+
+        private int rollno;
+
+        public int studrollno
+        {
+            set
+            {
+                if(value>=0)
+                {
+                    rollno = value;
+                }
+            }
+
+            get
+            {
+                return rollno;
+            }
+        }
+
+        private decimal marks;
+
+            public decimal studMarks
+        {
+            set
+            {
+                if(value!=0)
+                {
+                    marks = value;
+                }
+                else
+                {
+                    Console.WriteLine("Marks are Invalid");
+                }
+            }
+            get
+            {
+                return marks;
+            }
+        }
+
+        public Student(string name1 , int rollno1 , decimal marks1) : this()
+        {
+           
+            this.StudName = name1;
+            this.studrollno = rollno1;
+            this.studMarks = marks1;
+
+
+        }
+
+
+        public void show()
+        {
+            
+            Console.WriteLine(StudName);
+            Console.WriteLine(studrollno);
+            Console.WriteLine(studMarks);
+        }
+
+    }
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            Console.Write("Enter Number of Batches : ");
-            int b = Convert.ToInt32(Console.ReadLine());
-            int[][] arr = new int[b][];
-            for (int i = 0; i < b; i++)
-            {
-                Console.Write($"Enter Number of Student in {i + 1} : ");
-                int s = Convert.ToInt32(Console.ReadLine());
-                arr[i] = new int[s];
-                for (int j = 0; j < s; j++)
-                {
-                    Console.Write($"Enter Marks Batch {i + 1} Student {j + 1} : ");
-                    arr[i][j] = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("How many student you want : ");
 
-                }
+            int capacity = int.Parse(Console.ReadLine());
+
+            Student[] s1 = new Student[capacity];
+
+            for(int i = 0; i<s1.Length;i++)
+            {
+                Console.WriteLine("\nEnter Student name : ");
+
+                string name = Console.ReadLine();
+
+                Console.WriteLine("\nEnter Student rollno : ");
+
+                int rollno = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("\nEnter Student Marks : ");
+
+                decimal marks = decimal.Parse(Console.ReadLine());
+
+                Student temp = new Student(name, rollno, marks);
+
+                s1[i] = temp;
             }
 
-            for (int i = 0; i < arr.Length; i++)
+            Console.WriteLine("\n*****Details of Student*****\n");
+             
+              for(int i = 0; i<s1.Length;i++)
             {
-                for (int j = 0; j < arr[i].Length; j++)
-                {
-                    Console.WriteLine($"Batch {i + 1} Stuendt {j + 1} Marks are :" + arr[i][j]);
-                }
+                s1[i].show();
             }
+
             Console.ReadLine();
         }
+
+         
     }
 }
