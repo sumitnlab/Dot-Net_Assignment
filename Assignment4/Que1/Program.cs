@@ -6,82 +6,126 @@ using System.Threading.Tasks;
 
 namespace Que1
 {
-    class Program
+     public class Employee
     {
-        static void Main1(string[] args)
+       public int empno;
+
+       public string empname;
+
+       public string designation;
+
+       public decimal salary;
+
+        public void setvalues(int empno,string empname,string designation,decimal salary)
         {
-            object[] arr1 = new object[1];
-            Employees[] arr = new Employees[3];
-            Employees emp1 = new Employees(1, "Mohan", 3200000);
-            Employees emp2 = new Employees(2, "Vinay", 5200000);
-            Employees emp3 = new Employees(3, "Anna", 22000);
+            this.empno = empno;
+            this.empname = empname;
+            this.designation = designation;
+            this.salary = salary;
+        }
 
+         public void show()
+        {
+            Console.WriteLine(empno);
+            Console.WriteLine(empname);
+            Console.WriteLine(designation);
+            Console.WriteLine(salary);
 
-
-            arr[0] = emp1;
-            arr[1] = emp2;
-            arr[2] = emp3;
-
-           
-            //Method 1
-            for (int i = 0; i < arr.Length - 1; i++)
-            {
-                for (int j = 0; j < arr.Length - i - 1; j++)
-                {
-                    if (arr[j].EmpSal > arr[j + 1].EmpSal)
-                    {
-
-                        Employees temp = arr[j];
-                        arr[j] = arr[j + 1];
-                        arr[j + 1] = temp;
-                    }
-                }
-            }
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i].EmpSal == arr[arr.Length - 1].EmpSal)
-                    Console.WriteLine(arr[i].EmpId + " " + arr[i].EmpName + "  " + arr[i].EmpSal);
-            }
-
-
-            int eno = Convert.ToInt32(Console.ReadLine());
-
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i].EmpId == eno)
-                    Console.WriteLine(arr[i].EmpId + " " + arr[i].EmpName + "  " + arr[i].EmpSal);
-            }
-
-
-
-
-
-            Console.ReadLine();
+            
         }
 
     }
+     
 
-    class Employees
+    class Program
     {
-        private int empId;
-
-        private string empName;
-        private decimal empSal;
-
-        public int EmpId
+        static void Main(string[] args)
         {
-            get;
-            set;
-        }
-        public string EmpName { get; set; }
-        public decimal EmpSal { get; set; }
 
-        public Employees(int empId, string empName, decimal empSal)
-        {
-            this.EmpId = empId;
-            this.EmpName = empName;
-            this.EmpSal = empSal;
-        }
+            Console.WriteLine("How many employee you want to enter = ");
 
+            int capacity = int.Parse(Console.ReadLine());
+
+            Employee[] e1 = new Employee[capacity];
+
+            for (int i = 0; i < e1.Length; i++)
+            {
+
+                Console.WriteLine("\nEnter empno = ");
+
+                int empno = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Enter Name = ");
+
+                string empname = Console.ReadLine();
+
+                Console.WriteLine("Enter Designation = ");
+
+                string designation = Console.ReadLine();
+
+                Console.WriteLine("Enter salary = ");
+
+                decimal salaray = decimal.Parse(Console.ReadLine());
+
+                Employee temp = new Employee();
+
+                temp.setvalues(empno, empname, designation, salaray);
+
+                e1[i] = temp;
+      
+
+            }
+
+             
+            Console.WriteLine("\n*****List of Employees with deatils*****\n");
+
+             for(int i = 0; i<e1.Length;i++)
+            {
+                 e1[i].show();
+           
+            }
+
+            decimal max = e1[0].salary;
+
+
+            Console.WriteLine("\n*****List of Employees with Highest salaray*****\n");
+
+            for (int i = 0; i < e1.Length; i++)
+            {
+
+                if (e1[i].salary > max)
+                {
+                     max = e1[i].salary;
+
+                      e1[i].show();
+                }
+
+            }
+
+
+             //Console.WriteLine("\nHighest salary of employee is = "+ max + "\n");
+
+
+            Console.WriteLine("\n Enter the element to be serched : ");
+
+            int search = int.Parse(Console.ReadLine());
+
+             for(int i = 0; i<e1.Length; i++)
+            {
+
+                 if(e1[i].empno == search)
+                {
+                    e1[i].show();
+                }
+
+            }
+
+             
+             
+            Console.ReadLine();
+            
+
+        }
+        
     }
 }
